@@ -32,6 +32,20 @@
    text-align: center;
    z-index: 1; /* Above the blurred background */
  }
+
+ @media only screen and (max-width: 600px) {
+   h1 {
+      font-size: 60px;
+   }
+   /* .form-control input{
+      width: 80%;
+   }
+   .container{
+      width: 200px;
+      height: 200px; 
+   } */
+ }
+
  .button {
    position: fixed;
    top: 50px;
@@ -52,8 +66,6 @@
 
  }
  
-
-
  :root {
    font-size: 100%;
    --white: oklch(100% 0 0);
@@ -208,3 +220,32 @@
    z-index: 1; /* Behind the content */
    opacity: 0.7;
  }
+
+
+ @media screen and (max-width: 768px) {
+   /* Adjust styles for devices up to 768px width */
+
+   .container {
+      padding: 1rem;
+   }
+
+   .form-control {
+      width: 100%;
+   }
+
+   .form-control input {
+      width: calc(100% - 2rem); /* Adjust as needed */
+   }
+
+   .btn {
+      width: 100%;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   /* Adjust styles for devices up to 480px width */
+
+   .form-control input {
+      width: calc(100% - 1rem); /* Adjust as needed */
+   }
+}
