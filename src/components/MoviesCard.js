@@ -53,9 +53,9 @@ function MoviesCard(props) {
 
     const handleSearchButtonClick = () => {
         // Perform API call with the entered category
-        setTimeout(() => {
+       
             fetchData(searchCategory);
-        }, 1000);
+       
     };
 
     const handleSingleCard = (index, movie) => {

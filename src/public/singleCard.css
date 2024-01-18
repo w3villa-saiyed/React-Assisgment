@@ -1,126 +1,145 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-*
-{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    margin: 0%;
 }
+body{
+    background-color: rgb(3, 15, 44) ;
+}
+.attribute{font-family: arial,sans-serif;}
+.attribute small a{text-decoration:none;color:#fff;}
 
+@media only screen and (min-width: 701px) {
+    /* .banner{
+        position: absolute;top:55%;left: 50%; transform: translate(-50%,-50%);
+        width: 95%;height: 85vh;
+        background-image: url('https://pbs.twimg.com/media/EuNKMQbXMAEsMB-?format=jpg&name=large');
+        background-repeat: no-repeat;border-radius: 10px;
+        background-position: right;border: 0px solid transparent;
+        -webkit-box-shadow: 10px 10px 41px 0px rgba(0, 0, 0, 0.603);
+        -moz-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.603);
+        box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.605);
+    } */
+    .content{
+        width: 70%;height: inherit;color: white;
+        position: absolute;top: 0%;border-radius: 10px;
+        background:linear-gradient(to right,#030030 10%,rgba(3, 0, 48, 0.98) 20%,rgba(3, 0, 48,.97) 25%,rgba(3, 0, 48,.95) 35%,rgba(3, 0, 48,.94) 40%,rgba(3, 0, 48,.92) 45%,rgba(3, 0, 48,.9) 50%,rgba(3, 0, 48,.87) 55%,rgba(3, 0, 48,.82) 60%,rgba(3, 0, 48,.75) 65%,rgba(3, 0, 48,.63) 70%,rgba(3, 0, 48,.45) 75%,rgba(3, 0, 48,.27) 80%,rgba(3, 0, 48,.15) 85%,rgba(3, 0, 48,.08) 90%,rgba(3, 0, 48,.03) 95%,rgba(3, 0, 48,0) 100%);/**linear-gradient(to right,rgb(9, 1, 82),rgba(9, 1, 82, 0.9),rgba(9,1,82,0.4));**/
+        float: left;
+    }
 
-body
-{
+.content .everything{
+    margin-left: 7%;text-align: left;
+    margin-top: 100px;float: left;
+    
+}
+.content .everything .title{
     font-family: 'Roboto', sans-serif;
-}
-a
-{
-    text-decoration: none;
-}
-.product-card {
-    width: 380px;
-    position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
-    margin: 50px auto;
-    background: #fafafa;
-}
-
-.badge {
-    position: absolute;
-    left: 0;
-    top: 20px;
+    font-size: 2.8vw;line-height: 5vw;
     text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 700;
-    background: red;
-    color: #fff;
-    padding: 3px 10px;
+    text-shadow: 2px 3px  10px rgba(0, 0, 0, 0.507);
 }
-
-.product-tumb {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    padding: 50px;
-    background: #f0f0f0;
+.everything .episodes{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.4vw;line-height: 5vw;
 }
-
-.product-tumb img {
-    max-width: 100%;
-    max-height: 100%;
+.everything .vip{
+    font-family: 'Roboto', sans-serif;text-transform: uppercase;
+    color: black;background-color: goldenrod;
+    padding: 4px;border-radius: 5px;font-size: 12px;
+    font-weight: bold;line-height: 30px;border: 1px solid #000000;
 }
-
-.product-details {
-    padding: 30px;
+.everything .description{
+    font-family: 'Oswald', sans-serif;
+    padding-top: 20px;font-size: 17px;
 }
-
-.product-catagory {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ccc;
-    margin-bottom: 18px;
+.everything .starring{
+    font-family:  Arial, sans-serif;
+    line-height: 60px;font-size: 13px;
 }
-
-.product-details h4 a {
-    font-weight: 500;
-    display: block;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    color: #363636;
-    text-decoration: none;
-    transition: 0.3s;
+.everything .watch{
+    line-height: 20px;
 }
-
-.product-details h4 a:hover {
-    color: #fbb72c;
+.everything .watch i{
+    font-size: 2vw;
 }
-
-.product-details p {
-    font-size: 15px;
-    line-height: 22px;
-    margin-bottom: 18px;
-    color: #999;
+.everything .watch button{
+    background-color: inherit;
+    color: aliceblue;
+    border: 0px;padding: 20px;
 }
-
-.product-bottom-details {
-    overflow: hidden;
-    border-top: 1px solid #eee;
-    padding-top: 20px;
+.attribute small{
+    position: absolute;bottom: 1%;right: 5%;
+    color: white;
 }
-
-.product-bottom-details div {
-    float: left;
-    width: 50%;
 }
-
-.product-price {
-    font-size: 18px;
-    color: #fbb72c;
-    font-weight: 600;
-}
-
-.product-price small {
-    font-size: 80%;
-    font-weight: 400;
-    text-decoration: line-through;
-    display: inline-block;
-    margin-right: 5px;
-}
-
-.product-links {
-    text-align: right;
-}
-
-.product-links a {
-    display: inline-block;
-    margin-left: 5px;
-    color: #e1e1e1;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-.product-links a:hover {
-    color: #fbb72c;
+@media only screen and (max-width: 700px) {
+    /* .img{
+        position: relative; margin-left: auto; margin-right: auto;
+        margin-top: 5%;
+        width: 600px;height: 400px;
+        background-image: url('https://pbs.twimg.com/media/EuNKMQbXMAEsMB-?format=jpg&name=large');
+        background-repeat: no-repeat;border-radius: 10px;
+        background-position: center;border: 0px solid transparent;
+        -webkit-box-shadow: 10px 10px 41px 0px rgba(0, 0, 0, 0.603);
+        -moz-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.603);
+        box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.605);
+    } */
+    .nav{
+    width: 600px;
+    }
+    .banner {
+        display: flex;flex-direction: column;
+        color: #fff;
+    }
+    
+    .content .everything{
+        margin-left: 1px;padding:10%;
+        
+        
+    }
+    .content .everything .title{
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        text-transform: uppercase;padding-bottom: 5px;
+        text-shadow: 2px 3px  10px rgba(0, 0, 0, 0.507);
+    }
+    .everything .episodes{
+        font-family: Arial, Helvetica, sans-serif;
+        font: size 17px;
+    }
+    .everything .vip{
+        font-family: 'Roboto', sans-serif;text-transform: uppercase;
+        color: black;background-color: goldenrod;
+        padding: 4px;border-radius: 5px;font-size: 15px;
+        font-weight: bold;line-height: 40px;border: 1px solid #000000;
+    }
+    .everything .description{
+        font-family: 'Oswald', sans-serif;
+        padding-top: 20px;font-size: 17px;
+    }
+    .everything .starring{
+        font-family:  Arial, sans-serif;
+        font-size: 15px;padding-top:15px
+    }
+    .everything .watch{
+        line-height: 30px;
+    }
+    .everything .watch i{
+        font-size: 2vw;
+    }
+    .everything .watch button{
+        background-color: inherit;
+        color: aliceblue;
+        border: 0px;padding: 20px;
+    }
+    .wrap{
+        display: flex;flex-direction:column;
+        align-items:flex-start;
+    }
+    .attribute {
+        color: white;font-family: Arial, Helvetica, sans-serif;
+    }
+    .attribute small{
+        font-size: 12px;
+        position: absolute;
+        left: 70%;
+    }
 }
