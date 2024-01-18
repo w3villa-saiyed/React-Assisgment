@@ -8,6 +8,35 @@ function MoviesCard(props) {
     // const [openCardIndex, setOpenCardIndex] = useState(null);
     const [searchCategory, setSearchCategory] = useState('');
     const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(1);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const url = `https://api.themoviedb.org/3/discover/movie?page=${page}`;
+          const options = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MDlmOTJiZjdhYmQ2MDQ1M2Q5MWNkN2ExNjRhYzE4OSIsInN1YiI6IjY1YThmMTQ3MGYwZGE1MDEzOTNjMTFkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.regSLPi_h9ywhQxRYQcYt3B-crVB0TsYG5p-LizOuSw`,
+            },
+          };
+    
+          try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data);
+            setMovies((prevMovies) => [...prevMovies, ...data.results]);
+          } catch (error) {
+            console.error('Error fetching movies:', error);
+          }
+        };
+    
+        fetchData();
+      }, [page]);
+    
+
+
+
     const fetchData = async (category) => {
         setLoading(true);
         const url = `https://imdb8.p.rapidapi.com/auto-complete?q=${category}`;
@@ -26,7 +55,7 @@ function MoviesCard(props) {
             }
             const result = await response.json();
             console.log(result.d);
-            setMovies(result.d);
+            // setMovies(result.d);
         } catch (error) {
             console.error(error);
         }finally {
@@ -34,7 +63,7 @@ function MoviesCard(props) {
         }
     };
 
-    console.log("Check==>", movies.length)
+    
 
     useEffect(() => {
         // Initial fetch with a default category (e.g., 'horror')
@@ -66,7 +95,11 @@ function MoviesCard(props) {
         // Navigate to the movie details page with the movie information as state
         navigate(`/movie/${index}`, { state: { movieInfo: movie, email: props.email } });
     };
-
+    
+    const handleShowMore = () => {
+        setPage((prevPage) => prevPage + 1); // Increment the page number
+      };
+    
 
     return (
         <div>
@@ -83,7 +116,7 @@ function MoviesCard(props) {
                     <div className="search-filters">
                         <input
                             type="text"
-                            placeholder="Search by Category..."
+                            placeholder="Search movies name..."
                             value={searchCategory}
                             onChange={handleSearchInputChange}
                             // Uncomment the line below if you want to trigger the API call on the 'Enter' key press
@@ -103,11 +136,11 @@ function MoviesCard(props) {
                     ) : (
                         movies.map((movie, index) => (
                             <div className="card" onClick={() => handleSingleCard(index, movie)} key={index}>
-                                <img src={movie.i.imageUrl} alt="" aria-hidden="true" />
+                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" aria-hidden="true" />
                                 <div className="card-content">
-                                    <p className="movie-name">{movie.l}</p>
+                                    <p className="movie-name">{movie.title}</p>
                                     <div className="movie-info">
-                                        <p className="time">11:30 <span>14:45 16:05</span> 18:40 21:00</p>
+                                        <p className="time">Votes: {movie.vote_count}  ||  {movie.release_date}</p>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +151,7 @@ function MoviesCard(props) {
                     <div class="show-bar">
                         <div class="bar"></div>
                     </div>
-                    {/* <button>Show more</button> */}
+                    <button id='signout' onClick={handleShowMore}>Show more</button>
                 </div>
             </section>
         </div>

@@ -4,14 +4,14 @@ import MovieHomePage from './components/MoviesHomePage';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import MoviesListingPage from './components/MoviesListingPage';
-import { AuthProvider } from './components/AuthContext'
+// import { AuthProvider } from './components/AuthContext'
 import SingleMovieCard from './components/SingleMovieCard';
 
 
 
 function App() {
   return (
-    <AuthProvider>
+   
     <BrowserRouter>
     <div className="App">
     <Routes>
@@ -23,7 +23,7 @@ function App() {
       </Routes>
     </div>
   </BrowserRouter>
-  </AuthProvider>
+ 
   );
 }
 

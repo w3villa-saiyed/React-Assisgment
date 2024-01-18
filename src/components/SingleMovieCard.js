@@ -18,7 +18,7 @@ function SingleMovieCard() {
         marginTop: '5%',
         width: '600px',
         height: '400px',
-        backgroundImage: `url(${movieInfo.i.imageUrl})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movieInfo.poster_path})`,
         backgroundRepeat: 'no-repeat',
         borderRadius: '10px',
         backgroundPosition: 'center',
@@ -32,7 +32,7 @@ function SingleMovieCard() {
         transform: 'translate(-50%, -50%)',
         width: '95%',
         height: '85vh',
-        backgroundImage: `url(${movieInfo.i.imageUrl})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movieInfo.poster_path})`,
         backgroundRepeat: 'no-repeat',
         borderRadius: '10px',
         backgroundPosition: 'right',
@@ -53,15 +53,16 @@ function SingleMovieCard() {
             <div class="everything">
               <span class="vip">Premium</span>
               <div class="title">
-                <span>{movieInfo.l}</span>
+                <span>{movieInfo.title}</span>
               </div>
               <div class="episodes">
-                <span>{movieInfo.y} | </span>
-                <span>1 Season |</span><span> 6 Episodes |</span><span> Superhero |</span><span> 12+ |</span><span> Marvel</span>
+                <span>{movieInfo.release_date} | </span>
+                <span>  Popularity {movieInfo.popularity} |</span><span> Superhero |</span><span> Rating+ {movieInfo.vote_average
+} </span>
               </div>
               <div class="description">
                 <p>
-                {movieInfo.s}
+                {movieInfo.overview}
                 </p>
               </div>
               <div class="starring">

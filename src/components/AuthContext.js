@@ -1,24 +1,22 @@
-// AuthContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState(null);
 
-  const login = (userEmail) => {
-    setEmail(userEmail);
-    setIsAuthenticated(true);
+  const login = (email) => {
+    // You can perform additional tasks after login if needed
+    setUser({ email });
   };
 
   const logout = () => {
-    setEmail('');
-    setIsAuthenticated(false);
+    // You can perform additional tasks after logout if needed
+    setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, email, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
