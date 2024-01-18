@@ -7,7 +7,9 @@ function MoviesCard(props) {
     const [movies, setMovies] = useState([]);
     // const [openCardIndex, setOpenCardIndex] = useState(null);
     const [searchCategory, setSearchCategory] = useState('');
+    const [loading, setLoading] = useState(false);
     const fetchData = async (category) => {
+        setLoading(true);
         const url = `https://imdb8.p.rapidapi.com/auto-complete?q=${category}`;
         const options = {
             method: 'GET',
@@ -27,6 +29,8 @@ function MoviesCard(props) {
             setMovies(result.d);
         } catch (error) {
             console.error(error);
+        }finally {
+            setLoading(false);
         }
     };
 
@@ -91,17 +95,19 @@ function MoviesCard(props) {
                         <div class="bar"></div>
                     </div>
                 </div>
-                <div class="movie-card-section">
-                    {movies && movies.length === 0 ? (
+                <div className="movie-card-section">
+                    {loading ? (
+                        <p id='no-movie'>Loading...</p>
+                    ) : movies && movies.length === 0 ? (
                         <p id='no-movie'>No movies found...</p>
                     ) : (
                         movies.map((movie, index) => (
-                            <div class="card" onClick={() => handleSingleCard(index, movie)} key={index}>
+                            <div className="card" onClick={() => handleSingleCard(index, movie)} key={index}>
                                 <img src={movie.i.imageUrl} alt="" aria-hidden="true" />
-                                <div class="card-content">
-                                    <p class="movie-name">{movie.l}</p>
-                                    <div class="movie-info">
-                                        <p class="time">11:30 <span>14:45 16:05</span> 18:40 21:00</p>
+                                <div className="card-content">
+                                    <p className="movie-name">{movie.l}</p>
+                                    <div className="movie-info">
+                                        <p className="time">11:30 <span>14:45 16:05</span> 18:40 21:00</p>
                                     </div>
                                 </div>
                             </div>
