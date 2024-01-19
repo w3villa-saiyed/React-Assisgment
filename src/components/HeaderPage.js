@@ -1,17 +1,21 @@
+// Importing the MovieListingPage.css file
 import '../public/MovieListingPage.css';
+// Importing the useNavigate hook from react-router-dom
 import { useNavigate } from 'react-router-dom';
 
-
+// HeaderPage component definition
 function HeaderPage(props) {
     const navigate = useNavigate();
 
+    // Handling sign-out and navigating to the login page
     const handleSignOut = () => {
       // Navigate to the login page and remove the email from the state
       navigate('/login', { state: { email: null } });
     };
-
+      // Destructuring the email prop
     const email = props.email;
-    console.log("user email===>", email);
+   
+    // JSX for the HeaderPage component
     return  (
         <div>
           <header>
@@ -36,5 +40,5 @@ function HeaderPage(props) {
         </div>
       );;
 }
-
+// Exporting the HeaderPage component
  export default HeaderPage;

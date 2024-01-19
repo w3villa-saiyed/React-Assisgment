@@ -6,6 +6,9 @@ import RegisterPage from './components/RegisterPage';
 import MoviesListingPage from './components/MoviesListingPage';
 // import { AuthProvider } from './components/AuthContext'
 import SingleMovieCard from './components/SingleMovieCard';
+import PageNotFound from './components/PageNotFound';
+
+
 
 
 
@@ -20,6 +23,7 @@ function App() {
       <Route path="register" element={<RegisterPage />} />
       <Route path="Movies" element={<MoviesListingPage />} />
       <Route path="movie/:movieIndex" element={<SingleMovieCard />} />
+      <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   </BrowserRouter>

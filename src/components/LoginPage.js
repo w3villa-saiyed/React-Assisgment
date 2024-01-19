@@ -1,17 +1,16 @@
-import {useState, useEffect } from 'react';
 import '../public/MovieHomePage.css';
+import {useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useAuth } from './AuthContext';
+
 
 
 function LoginPage() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [Authenticate, setAuthenticate] = useState(false);
-  const [loginStatus, setLoginStatus] = useState(null); // null: initial, true: success, false: failure
-  const navigate = useNavigate();
-  // const { login } = useAuth();
+  const [loginStatus, setLoginStatus] = useState(null); 
 
+  // Handling input changes for email and password
     const handleInputChange = (e) => {
         if (e.target.name === 'email') {
           setEmail(e.target.value);
@@ -20,6 +19,7 @@ function LoginPage() {
         }
       };
     
+      // Handling login button click
       const handleLogin = async () => {
         try {
           const response = await fetch('https://reqres.in/api/login', {
@@ -42,7 +42,7 @@ function LoginPage() {
           setLoginStatus(false);
         }
       };
-    
+    // Effect to handle navigation based on login status
       useEffect(() => {
         if (loginStatus === true) {
           // Login successful, navigate to MovieListingPage
