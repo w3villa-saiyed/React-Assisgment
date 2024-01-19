@@ -3,9 +3,11 @@ import '../public/MovieHomePage.css';
 import { useNavigate } from 'react-router-dom';
 // import { useAuth } from './AuthContext';
 
+
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const [Authenticate, setAuthenticate] = useState(false);
   const [loginStatus, setLoginStatus] = useState(null); // null: initial, true: success, false: failure
   const navigate = useNavigate();
   // const { login } = useAuth();
@@ -44,7 +46,7 @@ function LoginPage() {
       useEffect(() => {
         if (loginStatus === true) {
           // Login successful, navigate to MovieListingPage
-          navigate('/Movies',{ state: { email } })
+          navigate('/Movies',{ state: { email, loginStatus } })
         } else if (loginStatus === false) {
           // Login failed, you can show an error message or take any other appropriate action
           console.log('Login failed. Please check your credentials.');

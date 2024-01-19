@@ -5,70 +5,107 @@ import { useNavigate } from 'react-router-dom';
 function MoviesCard(props) {
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
-    // const [openCardIndex, setOpenCardIndex] = useState(null);
+    // const [initialMovies, setInitialMovies] = useState([]);
+    // const [searchMovies, setSearchMovies] = useState([]);
     const [searchCategory, setSearchCategory] = useState('');
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
 
+
+
+
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const url = `https://api.themoviedb.org/3/discover/movie?page=${page}`;
+    //       const options = {
+    //         method: 'GET',
+    //         headers: {
+    //           'Content-Type': 'application/json',
+    //           Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MDlmOTJiZjdhYmQ2MDQ1M2Q5MWNkN2ExNjRhYzE4OSIsInN1YiI6IjY1YThmMTQ3MGYwZGE1MDEzOTNjMTFkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.regSLPi_h9ywhQxRYQcYt3B-crVB0TsYG5p-LizOuSw`,
+    //         },
+    //       };
+    
+    //       try {
+    //         const response = await fetch(url, options);
+    //         const data = await response.json();
+    //         console.log(data);
+    //         setInitialMovies((prevMovies) => [...prevMovies, ...data.results]);
+    //       } catch (error) {
+    //         console.error('Error fetching movies:', error);
+    //       }
+    //     };
+    
+    //     fetchData();
+    //   }, [page]);
+    
+    // const fetchData = async (category) => {
+    //     setLoading(true);
+    //     const url = `https://api.themoviedb.org/3/search/movie?query=${category}&a&page=${page}`;
+    //     const options = {
+    //         method: 'GET',
+    //         headers: {
+    //             accept: 'application/json',
+    //             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MDlmOTJiZjdhYmQ2MDQ1M2Q5MWNkN2ExNjRhYzE4OSIsInN1YiI6IjY1YThmMTQ3MGYwZGE1MDEzOTNjMTFkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.regSLPi_h9ywhQxRYQcYt3B-crVB0TsYG5p-LizOuSw'
+    //         },
+    //     };
+
+    //     try {
+    //         const response = await fetch(url, options);
+    //         if (!response.ok) {
+    //             throw new Error('Request failed');
+    //         }
+    //         const data = await response.json();
+    //         console.log(data);
+    //         setSearchMovies((prevMovies) => [...prevMovies, ...data.results]);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }finally {
+    //         setLoading(false);
+    //     }
+    // };
+
+
+
     useEffect(() => {
-        const fetchData = async () => {
-            const url = `https://api.themoviedb.org/3/discover/movie?page=${page}`;
-          const options = {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MDlmOTJiZjdhYmQ2MDQ1M2Q5MWNkN2ExNjRhYzE4OSIsInN1YiI6IjY1YThmMTQ3MGYwZGE1MDEzOTNjMTFkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.regSLPi_h9ywhQxRYQcYt3B-crVB0TsYG5p-LizOuSw`,
-            },
-          };
-    
-          try {
-            const response = await fetch(url, options);
-            const data = await response.json();
-            console.log(data);
-            setMovies((prevMovies) => [...prevMovies, ...data.results]);
-          } catch (error) {
-            console.error('Error fetching movies:', error);
-          }
-        };
-    
         fetchData();
-      }, [page]);
-    
+    }, [page, searchCategory]);
 
-
-
-    const fetchData = async (category) => {
+    const fetchData = async () => {
         setLoading(true);
-        const url = `https://imdb8.p.rapidapi.com/auto-complete?q=${category}`;
+        const url = searchCategory
+            ? `https://api.themoviedb.org/3/search/movie?query=${searchCategory}&page=${page}`
+            : `https://api.themoviedb.org/3/discover/movie?page=${page}`;
+
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'b9f5851977msh40af79cbb6e9ce9p110124jsnd6aa5a44f6de',
-                'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
+                'Content-Type': 'application/json',
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MDlmOTJiZjdhYmQ2MDQ1M2Q5MWNkN2ExNjRhYzE4OSIsInN1YiI6IjY1YThmMTQ3MGYwZGE1MDEzOTNjMTFkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.regSLPi_h9ywhQxRYQcYt3B-crVB0TsYG5p-LizOuSw`,
             },
         };
 
         try {
             const response = await fetch(url, options);
-            if (!response.ok) {
-                throw new Error('Request failed');
-            }
-            const result = await response.json();
-            console.log(result.d);
-            // setMovies(result.d);
+            const data = await response.json();
+            setMovies((prevMovies) => {
+                if (page === 1) {
+                    // If it's the first page, replace the existing movies with the fetched movies
+                    return data.results;
+                } else {
+                    // If it's not the first page, append the new movies to the existing list
+                    return [...prevMovies, ...data.results];
+                }
+            });
         } catch (error) {
-            console.error(error);
-        }finally {
+            console.error('Error fetching movies:', error);
+        } finally {
             setLoading(false);
         }
     };
 
-    
 
-    useEffect(() => {
-        // Initial fetch with a default category (e.g., 'horror')
-        fetchData('happy');
-    }, []);
+
 
 
     const handleSearchInputChange = (e) => {
@@ -86,8 +123,8 @@ function MoviesCard(props) {
 
     const handleSearchButtonClick = () => {
         // Perform API call with the entered category
-       
-            fetchData(searchCategory);
+            setPage(1);
+            // fetchData(searchCategory, 1);
        
     };
 
@@ -97,7 +134,7 @@ function MoviesCard(props) {
     };
     
     const handleShowMore = () => {
-        setPage((prevPage) => prevPage + 1); // Increment the page number
+        setPage((prevPage) => prevPage + 1);  // Increment the page number
       };
     
 
@@ -131,10 +168,10 @@ function MoviesCard(props) {
                 <div className="movie-card-section">
                     {loading ? (
                         <p id='no-movie'>Loading...</p>
-                    ) : movies && movies.length === 0 ? (
+                    ) : movies.length === 0 ?  (
                         <p id='no-movie'>No movies found...</p>
                     ) : (
-                        movies.map((movie, index) => (
+                          movies.map((movie, index) => (
                             <div className="card" onClick={() => handleSingleCard(index, movie)} key={index}>
                                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" aria-hidden="true" />
                                 <div className="card-content">
