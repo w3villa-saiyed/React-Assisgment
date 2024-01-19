@@ -27,7 +27,7 @@ function SingleMovieCard() {
     // Movie information is not available, you can choose to render a loading spinner or handle it as needed.
     return null;
   }
-
+ // Banner image Handling
   const bannerStyle = window.innerWidth <= 700
     ? {
         position: 'relative',
