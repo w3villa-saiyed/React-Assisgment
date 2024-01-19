@@ -22,15 +22,10 @@ useEffect(() => {
   }
 }, [loginStatus, navigate]);
 
-// if (loginStatus === null) {
-//   // Redirect to login page if loginStatus is null
-//   navigate('login');
-//   return null; // Return null to prevent rendering the rest of the component
-// }
   return (
     <div >
      <HeaderPage email={email}/>
-     <MoviesCard email={email} />
+     <MoviesCard email={email} loginStatus={loginStatus}/>
     </div>
   );
 }

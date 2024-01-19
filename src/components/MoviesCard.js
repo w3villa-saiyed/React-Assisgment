@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function MoviesCard(props) {
+    // const { email, loginStatus } = props;
     const navigate = useNavigate();
     const [movies, setMovies] = useState([]);
     // const [initialMovies, setInitialMovies] = useState([]);
@@ -12,7 +13,8 @@ function MoviesCard(props) {
     const [page, setPage] = useState(1);
 
 
-
+    const { email, loginStatus } = props;
+    console.log("card email and status",email,loginStatus);
 
 
     // useEffect(() => {
@@ -130,7 +132,7 @@ function MoviesCard(props) {
 
     const handleSingleCard = (index, movie) => {
         // Navigate to the movie details page with the movie information as state
-        navigate(`/movie/${index}`, { state: { movieInfo: movie, email: props.email } });
+        navigate(`/movie/${index}`, { state: { movieInfo: movie, email: email, loginStatus: loginStatus} });
     };
     
     const handleShowMore = () => {

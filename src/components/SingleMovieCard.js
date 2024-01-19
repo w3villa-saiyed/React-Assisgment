@@ -1,14 +1,32 @@
 import HeaderPage from './HeaderPage';
 import '../public/singleCard.css'
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 function SingleMovieCard() {
+  const navigate = useNavigate();
   const location = useLocation();
   const email = location.state && location.state.email;
   const movieInfo = location.state && location.state.movieInfo;
+  const loginStatus = location.state && location.state.loginStatus;
 
   console.log("Email:", email);
   console.log("Movie info", movieInfo);
+  console.log("loginStatus", loginStatus);
+
+
+  useEffect(() => {
+    if (loginStatus === null) {
+      // Redirect to login page if loginStatus is null
+      navigate('/login');
+    }
+  }, [loginStatus, navigate]);
+  
+  if (!movieInfo) {
+    // Movie information is not available, you can choose to render a loading spinner or handle it as needed.
+    return null;
+  }
 
   const bannerStyle = window.innerWidth <= 700
     ? {
