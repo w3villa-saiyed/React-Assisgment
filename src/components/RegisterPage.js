@@ -17,7 +17,7 @@ labels.forEach(label => {
   return (
     <div className='background-login'>
     <div className="container">
-      <h1>Login</h1>
+      <h1>Create Account</h1>
       <form>
       <div className="form-control">
           <input type="text" required name="name" />
@@ -31,7 +31,7 @@ labels.forEach(label => {
           <input type="password" required name="password" />
           <label>Password</label>
         </div>
-        <button className="btn">Login</button>
+        <button className="btn">Create</button>
         <p className="text">Don't have an account? <a href="/login">Login</a></p>
       </form>
     </div>
