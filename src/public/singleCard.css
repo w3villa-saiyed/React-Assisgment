@@ -1,0 +1,140 @@
+*{
+    margin: 0%;
+}
+body{
+    background-color: rgb(3, 15, 44) ;
+}
+.attribute{font-family: arial,sans-serif;}
+.attribute small a{text-decoration:none;color:#fff;}
+
+@media only screen and (min-width: 701px) {
+    .content{
+        width: 70%;height: inherit;color: white;
+        position: absolute;top: 0%;border-radius: 10px;
+        background:linear-gradient(to right,#030030 10%,rgba(3, 0, 48, 0.98) 20%,rgba(3, 0, 48,.97) 25%,rgba(3, 0, 48,.95) 35%,rgba(3, 0, 48,.94) 40%,rgba(3, 0, 48,.92) 45%,rgba(3, 0, 48,.9) 50%,rgba(3, 0, 48,.87) 55%,rgba(3, 0, 48,.82) 60%,rgba(3, 0, 48,.75) 65%,rgba(3, 0, 48,.63) 70%,rgba(3, 0, 48,.45) 75%,rgba(3, 0, 48,.27) 80%,rgba(3, 0, 48,.15) 85%,rgba(3, 0, 48,.08) 90%,rgba(3, 0, 48,.03) 95%,rgba(3, 0, 48,0) 100%);/**linear-gradient(to right,rgb(9, 1, 82),rgba(9, 1, 82, 0.9),rgba(9,1,82,0.4));**/
+        float: left;
+    }
+
+.content .everything{
+    margin-left: 7%;text-align: left;
+    margin-top: 100px;float: left;
+    
+}
+.content .everything .title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8vw;line-height: 5vw;
+    text-transform: uppercase;
+    text-shadow: 2px 3px  10px rgba(0, 0, 0, 0.507);
+}
+.everything .episodes{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1.4vw;line-height: 5vw;
+}
+.everything .vip{
+    font-family: 'Roboto', sans-serif;text-transform: uppercase;
+    color: black;background-color: goldenrod;
+    padding: 4px;border-radius: 5px;font-size: 12px;
+    font-weight: bold;line-height: 30px;border: 1px solid #000000;
+}
+.everything .description{
+    font-family: 'Oswald', sans-serif;
+    padding-top: 20px;font-size: 17px;
+}
+.everything .starring{
+    font-family:  Arial, sans-serif;
+    line-height: 60px;font-size: 13px;
+}
+.everything .watch{
+    line-height: 20px;
+}
+.everything .watch i{
+    font-size: 2vw;
+}
+.everything .watch button{
+    background-color: inherit;
+    color: aliceblue;
+    border: 0px;padding: 20px;
+}
+.attribute small{
+    position: absolute;bottom: 1%;right: 5%;
+    color: white;
+}
+}
+@media only screen and (max-width: 700px) {
+    .nav{
+    width: 600px;
+    }
+    .banner {
+        display: flex;flex-direction: column;
+        color: #fff;
+    }
+    
+    .content .everything{
+        margin-left: 1px;padding:10%;
+        
+        
+    }
+    .content .everything .title{
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        text-transform: uppercase;padding-bottom: 5px;
+        text-shadow: 2px 3px  10px rgba(0, 0, 0, 0.507);
+    }
+    .everything .episodes{
+        font-family: Arial, Helvetica, sans-serif;
+        font: size 17px;
+    }
+    .everything .vip{
+        font-family: 'Roboto', sans-serif;text-transform: uppercase;
+        color: black;background-color: goldenrod;
+        padding: 4px;border-radius: 5px;font-size: 15px;
+        font-weight: bold;line-height: 40px;border: 1px solid #000000;
+    }
+    .everything .description{
+        font-family: 'Oswald', sans-serif;
+        padding-top: 20px;font-size: 17px;
+    }
+    .everything .starring{
+        font-family:  Arial, sans-serif;
+        font-size: 15px;padding-top:15px
+    }
+    .everything .watch{
+        line-height: 30px;
+    }
+    .everything .watch i{
+        font-size: 2vw;
+    }
+    .everything .watch button{
+        background-color: inherit;
+        color: aliceblue;
+        border: 0px;padding: 20px;
+    }
+    .wrap{
+        display: flex;flex-direction:column;
+        align-items:flex-start;
+    }
+    .attribute {
+        color: white;font-family: Arial, Helvetica, sans-serif;
+    }
+    .attribute small{
+        font-size: 12px;
+        position: absolute;
+        left: 70%;
+    }
+}
+
+.page-not-found {
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    margin-top: 50px; /* Adjust the margin-top to position it on the page */
+    max-width: 400px;
+  }
+  
+  .page-not-found h1 {
+    color: #f00;
+  }
+  
+  .page-not-found p {
+    color: #555;
+  }
