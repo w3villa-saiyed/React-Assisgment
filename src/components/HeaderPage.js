@@ -10,7 +10,8 @@ function HeaderPage(props) {
     // Handling sign-out and navigating to the login page
     const handleSignOut = () => {
       // Navigate to the login page and remove the email from the state
-      navigate('/login', { state: { email: null } });
+      
+      navigate('/login', { state: { email: null, loginStatus: null } });
     };
       // Destructuring the email prop
     const email = props.email;

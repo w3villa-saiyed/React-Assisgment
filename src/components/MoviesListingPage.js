@@ -12,7 +12,8 @@ function MoviesListingPage() {
  const email = location.state && location.state.email;
  const loginStatus = location.state && location.state.loginStatus;
 
-console.log(loginStatus)
+console.log(loginStatus);
+
 
 // Effect to redirect to the login page if loginStatus is null
 useEffect(() => {
