@@ -60,7 +60,6 @@ function MoviesCard(props) {
         setSearchCategory(inputText);
     };
 
-
     // Function to handle search button click
     const handleSearchButtonClick = () => {
         // Perform API call with the entered category
