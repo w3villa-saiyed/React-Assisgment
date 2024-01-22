@@ -15,11 +15,7 @@ function MoviesCard(props) {
 
     // Effect to fetch data when page or search category changes
     useEffect(() => {
-        fetchData();
-    }, [page, searchCategory]);
-
-
-    // Function to fetch data from the API
+         // Function to fetch data from the API
     const fetchData = async () => {
         setLoading(true);
         const url = searchCategory
@@ -52,6 +48,12 @@ function MoviesCard(props) {
             setLoading(false);
         }
     };
+
+        fetchData();
+    }, [page, searchCategory]);
+
+
+   
 
 
     // Function to handle search input change
